@@ -27,13 +27,13 @@ const UserName = ({ userDet, languages, userRepo, defaultPage, hasNextPage }) =>
             <div className="grid grid-cols-1 md:grid-cols-2  items-start justify-start gap-x-20 gap-y-10">
                 {
                     userRepo.map((repo) => (
-                        <div className="border p-4 flex flex-col gap-3 h-full w-full">
+                        <div key={repo.id} className="border p-4 flex flex-col gap-3 h-full w-full">
                             <a href={repo.clone_url} target="_blank" className="text-[#3081F7] font-bold text-xl underline" >{repo.name}</a>
                             <p>{repo.description}</p>
                             <div className='flex flex-wrap gap-3'>
                                 {
                                     Object.keys((languages[repo.name])).map((lan) => (
-                                        <div className='flex justify-center items-center bg-[#3081F7] p-2 rounded-lg'>
+                                        <div key={lan.id} className='flex justify-center items-center bg-[#3081F7] p-2 rounded-lg'>
                                             {lan}
                                         </div>
                                     ))
